@@ -21,11 +21,13 @@ protocol AppHomeListener: AnyObject {
     // TODO: Declare methods the interactor can invoke to communicate with other RIBs.
 }
 
-final class AppHomeInteractor: PresentableInteractor<AppHomePresentable>, AppHomeInteractable, AppHomePresentableListener {
+final class AppHomeInteractor: PresentableInteractor<AppHomePresentable>,
+                               AppHomeInteractable,
+                               AppHomePresentableListener {
 
     weak var router: AppHomeRouting?
     weak var listener: AppHomeListener?
-
+    
     // TODO: Add additional dependencies to constructor. Do not perform any logic
     // in constructor.
     override init(presenter: AppHomePresentable) {

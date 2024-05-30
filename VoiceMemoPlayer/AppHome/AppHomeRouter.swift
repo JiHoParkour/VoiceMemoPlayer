@@ -17,9 +17,11 @@ protocol AppHomeViewControllable: ViewControllable {
 }
 
 final class AppHomeRouter: ViewableRouter<AppHomeInteractable, AppHomeViewControllable>, AppHomeRouting {
-
+    
+    
     // TODO: Constructor inject child builder protocols to allow building children.
-    override init(interactor: AppHomeInteractable, viewController: AppHomeViewControllable) {
+    override init(interactor: AppHomeInteractable,
+         viewController: AppHomeViewControllable) {
         super.init(interactor: interactor, viewController: viewController)
         interactor.router = self
     }

@@ -20,6 +20,18 @@ final class AppHomeViewController: UIViewController, AppHomePresentable, AppHome
     weak var listener: AppHomePresentableListener?
     
     override func viewDidLoad() {
-        self.view.backgroundColor = .red
+        super.viewDidLoad()
+        
+        let addButton = UIButton(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
+        addButton.setImage(UIImage(systemName: "plus.circle"), for: .normal)
+        addButton.addTarget(self, action: #selector(addButtonTapped), for: .touchUpInside)
+        let barButton = UIBarButtonItem(customView: addButton)
+        self.navigationItem.rightBarButtonItem = barButton
+    }
+    
+    @objc func addButtonTapped() {
+        self.presentActionSheet { folderName in
+            print(folderName)
+        }
     }
 }

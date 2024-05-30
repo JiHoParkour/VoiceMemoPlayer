@@ -34,10 +34,9 @@ final class AppRootRouter: LaunchRouter<AppRootInteractable, AppRootViewControll
     
     func routeToAppHome() {
         if appHomeRouting != nil { return }
-        
-        let router = appHomeBuilder.build(withListener: interactor)
-        self.appHomeRouting = router
-        attachChild(router)
-        viewController.present(viewController: router.viewControllable)
+        let routing = appHomeBuilder.build(withListener: interactor)
+        self.appHomeRouting = routing
+        attachChild(routing)
+        viewController.present(viewController: NavigationControllerable(root: routing.viewControllable))
     }
 }
